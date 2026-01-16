@@ -797,20 +797,22 @@ p.add(t.target);p=u(p);for(l=p.next();!l.done;l=p.next())a(l.value)}),Vd=0,ha=ne
 <h2 class="text-2xl font-bold text-white">프로젝트 문의하기</h2>
 <p class="mt-2 text-slate-400 text-sm">해결하고 싶은 과제나 자동화가 필요한 업무를 알려주세요.</p>
 </div>
-<form class="space-y-5" onsubmit="event.preventDefault(); alert('문의가 성공적으로 접수되었습니다. 담당자가 곧 연락드리겠습니다.');">
+<form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-5">
+<input type="hidden" name="form-name" value="contact">
+<p class="hidden"><label>Don't fill this out: <input name="bot-field"></label></p>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
 <div>
 <label class="block text-xs font-bold text-slate-400 mb-2 uppercase">Name / Company</label>
-<input class="w-full bg-[#0f172a] border border-slate-700 text-white px-4 py-3 rounded-lg focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-none transition-colors" placeholder="홍길동 / (주)노마드" required="" type="text">
+<input name="name" class="w-full bg-[#0f172a] border border-slate-700 text-white px-4 py-3 rounded-lg focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-none transition-colors" placeholder="홍길동 / (주)노마드" required="" type="text">
 </div>
 <div>
 <label class="block text-xs font-bold text-slate-400 mb-2 uppercase">Contact</label>
-<input class="w-full bg-[#0f172a] border border-slate-700 text-white px-4 py-3 rounded-lg focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-none transition-colors" placeholder="010-1234-5678" required="" type="tel">
+<input name="contact" class="w-full bg-[#0f172a] border border-slate-700 text-white px-4 py-3 rounded-lg focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-none transition-colors" placeholder="010-1234-5678" required="" type="tel">
 </div>
 </div>
 <div>
 <label class="block text-xs font-bold text-slate-400 mb-2 uppercase">Inquiry Type</label>
-<select class="w-full bg-[#0f172a] border border-slate-700 text-white px-4 py-3 rounded-lg focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-none transition-colors">
+<select name="inquiry-type" class="w-full bg-[#0f172a] border border-slate-700 text-white px-4 py-3 rounded-lg focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-none transition-colors">
 <option>AI 도입 컨설팅</option>
 <option>자동화 솔루션 개발</option>
 <option>기업용 웹/앱 개발</option>
@@ -819,7 +821,7 @@ p.add(t.target);p=u(p);for(l=p.next();!l.done;l=p.next())a(l.value)}),Vd=0,ha=ne
 </div>
 <div>
 <label class="block text-xs font-bold text-slate-400 mb-2 uppercase">Project Details</label>
-<textarea class="w-full bg-[#0f172a] border border-slate-700 text-white px-4 py-3 rounded-lg focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-none transition-colors" placeholder="예: 현재 엑셀로 처리하는 업무를 자동화하고 싶습니다. / 사내 문서를 검색하는 챗봇이 필요합니다." required="" rows="4"></textarea>
+<textarea name="message" class="w-full bg-[#0f172a] border border-slate-700 text-white px-4 py-3 rounded-lg focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 outline-none transition-colors" placeholder="예: 현재 엑셀로 처리하는 업무를 자동화하고 싶습니다. / 사내 문서를 검색하는 챗봇이 필요합니다." required="" rows="4"></textarea>
 </div>
 <button class="w-full py-4 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-bold rounded-lg transition-all shadow-lg shadow-indigo-500/20 transform hover:-translate-y-1" type="submit">
                     문의 접수하기
