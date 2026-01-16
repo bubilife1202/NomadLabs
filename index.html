@@ -417,7 +417,7 @@ p.add(t.target);p=u(p);for(l=p.next();!l.done;l=p.next())a(l.value)}),Vd=0,ha=ne
 </nav>
 
 <!-- Hero Section -->
-<section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden min-h-screen flex items-center" id="hero">
+<section class="relative pt-20 pb-16 md:pt-32 md:pb-20 lg:pt-40 lg:pb-32 overflow-hidden min-h-screen flex items-center" id="hero">
 <!-- Dynamic Background -->
 <div class="absolute inset-0 z-0">
 <img alt="Neural Network Background" class="w-full h-full object-cover opacity-20 mix-blend-screen" src="images/hero.png" style="">
@@ -427,16 +427,16 @@ p.add(t.target);p=u(p);for(l=p.next();!l.done;l=p.next())a(l.value)}),Vd=0,ha=ne
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 <div class="flex flex-col items-start max-w-4xl">
 
-<h1 class="text-5xl md:text-7xl lg:text-8xl font-space font-bold text-white leading-[1.1] mb-8 fade-in-up tracking-tight" style="animation-delay: 0.2s;">
+<h1 class="hero-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-space font-bold text-white leading-[1.15] mb-6 md:mb-8 fade-in-up tracking-tight" style="animation-delay: 0.2s;">
                 Designing <br>
 <span class="text-gradient">Intelligence.</span>
 </h1>
-<p class="mt-2 text-xl md:text-2xl text-slate-400 leading-relaxed max-w-2xl fade-in-up" style="animation-delay: 0.3s;">
-                최신 AI 기술 스택을 활용하여 기업의 워크플로우를 혁신적으로 자동화합니다.<br>
+<p class="hero-subtitle mt-2 text-sm sm:text-base md:text-lg lg:text-xl text-slate-300 leading-relaxed max-w-2xl fade-in-up" style="animation-delay: 0.3s;">
+                최신 AI 기술 스택을 활용하여 기업의 워크플로우를 혁신적으로 자동화합니다.<br class="hidden sm:block">
                 기업 맞춤형 에이전트 개발부터 고도화된 데이터 분석까지,<br class="hidden md:block">
                 당신의 비즈니스 문제를 해결하는 가장 확실한 AI 솔루션을 제안합니다.
             </p>
-<div class="mt-12 flex flex-col sm:flex-row gap-4 fade-in-up" style="animation-delay: 0.4s;">
+<div class="mt-8 md:mt-12 flex flex-col sm:flex-row gap-3 sm:gap-4 fade-in-up" style="animation-delay: 0.4s;">
 <button class="px-8 py-4 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg font-bold transition-all shadow-[0_0_20px_rgba(79,70,229,0.3)] hover:shadow-[0_0_30px_rgba(79,70,229,0.5)] flex items-center justify-center gap-2 group" onclick="scrollToSection('portfolio')">
                     성공 사례 확인하기
                     <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_downward</span>
@@ -508,11 +508,11 @@ p.add(t.target);p=u(p);for(l=p.next();!l.done;l=p.next())a(l.value)}),Vd=0,ha=ne
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="flex flex-col md:flex-row justify-between items-end mb-12">
 <div>
-<h2 class="text-4xl font-bold text-white font-space">Real-World Case Studies</h2>
+<h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white font-space">Real-World Case Studies</h2>
 <p class="mt-2 text-slate-400">NomadLabs가 해결한 실제 비즈니스 난제들입니다.</p>
 </div>
 <!-- Category Filters -->
-<div class="flex flex-wrap gap-2 mt-6 md:mt-0" id="category-filters">
+<div class="flex flex-nowrap sm:flex-wrap gap-2 mt-6 md:mt-0 overflow-x-auto pb-2 sm:pb-0 no-scrollbar" id="category-filters">
             <button onclick="setCategory('all')" class="px-4 py-2 rounded-full text-xs md:text-sm font-bold transition-all duration-300 category-active">
                 All Projects
             </button>
@@ -772,24 +772,24 @@ p.add(t.target);p=u(p);for(l=p.next();!l.done;l=p.next())a(l.value)}),Vd=0,ha=ne
 </div>
 </section>
 <!-- CTA Section -->
-<section class="relative py-24 bg-black overflow-hidden">
+<section class="relative py-16 md:py-24 bg-black overflow-hidden">
 <img alt="Team" class="absolute inset-0 w-full h-full object-cover opacity-30" src="images/teams.png" style="">
 <div class="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent"></div>
 <div class="relative z-10 max-w-4xl mx-auto px-4 text-center">
-<h2 class="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
+<h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-6 tracking-tight">
             Ready to <span class="text-indigo-500">Transform</span> Your Workflow?
         </h2>
-<p class="text-slate-300 text-lg mb-10 max-w-2xl mx-auto">
-            수작업으로 인한 비효율, AI가 해결할 수 있습니다.<br>
+<p class="text-slate-300 text-sm sm:text-base md:text-lg mb-6 md:mb-10 max-w-2xl mx-auto px-4">
+            수작업으로 인한 비효율, AI가 해결할 수 있습니다.<br class="hidden sm:block">
             NomadLabs가 당신의 비즈니스에 최적화된 AI 솔루션을 설계해드립니다.
         </p>
-<button class="px-10 py-4 bg-white text-black text-lg font-bold rounded-full hover:bg-slate-200 transition-all transform hover:scale-105" onclick="scrollToSection('contact')">
+<button class="px-6 sm:px-10 py-3 sm:py-4 bg-white text-black text-sm sm:text-lg font-bold rounded-full hover:bg-slate-200 transition-all transform hover:scale-105" onclick="scrollToSection('contact')">
             무료 견적/진단 받기
         </button>
 </div>
 </section>
 <!-- Contact Section -->
-<section class="py-20 bg-[#0b1120]" id="contact">
+<section class="py-12 md:py-20 bg-[#0b1120]" id="contact">
 <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
 <div class="bg-[#1e293b] rounded-2xl border border-slate-700 p-8 md:p-12">
 <div class="text-center mb-10">

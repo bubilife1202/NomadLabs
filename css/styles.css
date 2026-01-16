@@ -72,36 +72,129 @@ html {
     box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
 }
 
-/* Mobile Responsive Improvements */
+/* ===== MOBILE RESPONSIVE (< 640px) ===== */
 @media (max-width: 640px) {
-    /* Hero text size adjustments */
-    .hero-title {
-        font-size: 2.5rem !important;
-        line-height: 1.2 !important;
-    }
-    
     /* Better touch targets */
-    button, a {
+    button, 
+    a,
+    .category-inactive,
+    .category-active {
         min-height: 44px;
+        min-width: 44px;
     }
     
     /* Modal full screen on mobile */
     #modal-panel {
-        max-height: 95vh;
-        margin: 0.5rem;
+        max-height: 90vh;
+        margin: 1rem;
+        border-radius: 1rem;
     }
     
-    /* Better spacing on mobile */
-    .mobile-padding {
+    /* Navigation improvements */
+    nav {
         padding-left: 1rem;
         padding-right: 1rem;
     }
+    
+    /* Project cards */
+    .group {
+        margin-bottom: 1rem;
+    }
+    
+    /* Footer stacking */
+    footer .flex {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    /* Category filters horizontal scroll */
+    #category-filters {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 0.5rem;
+        scrollbar-width: none;
+    }
+    
+    #category-filters::-webkit-scrollbar {
+        display: none;
+    }
+    
+    /* Section headings */
+    section h2 {
+        font-size: 1.75rem !important;
+    }
+    
+    /* Contact form inputs */
+    input, textarea {
+        font-size: 16px !important; /* Prevents iOS zoom */
+    }
 }
 
-/* Tablet adjustments */
+/* ===== TABLET RESPONSIVE (< 768px) ===== */
 @media (max-width: 768px) {
+    /* Hero subtitle */
     .hero-subtitle {
-        font-size: 1rem !important;
-        line-height: 1.6 !important;
+        line-height: 1.7;
+    }
+    
+    /* Modal adjustments */
+    #modal-panel {
+        max-width: 95vw;
+    }
+    
+    /* Stats section */
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ===== SMALL MOBILE (< 375px) ===== */
+@media (max-width: 375px) {
+    .hero-title {
+        font-size: 1.75rem !important;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.875rem !important;
+    }
+    
+    /* Buttons stack */
+    .flex.gap-4 button {
+        width: 100%;
+    }
+}
+
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-reduced-motion: reduce) {
+    .fade-in-up {
+        animation: none;
+        opacity: 1;
+        transform: none;
+    }
+    
+    * {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+
+/* Focus states for keyboard navigation */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid #6366f1;
+    outline-offset: 2px;
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+    
+    nav, footer, #modal-panel {
+        display: none;
     }
 }
