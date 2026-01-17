@@ -291,3 +291,22 @@ function closeMobileMenu() {
         document.body.style.overflow = '';
     }
 }
+
+// Workflow steps: add .in-view when visible (glow effect trigger)
+(() => {
+    const steps = document.querySelectorAll('#process .process-step');
+    if (!steps.length) return;
+
+    const observer = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+            }
+        }
+    }, { 
+        threshold: 0.3,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    steps.forEach(step => observer.observe(step));
+})();

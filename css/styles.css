@@ -161,10 +161,12 @@ html {
         gap: 4px !important;
     }
     
-    /* [FIX] Workflow step descriptions */
-    .workflow-step p {
+    /* [FIX] Workflow step descriptions - selector bug fixed */
+    .workflow-step {
         font-size: 14px !important;
-        line-height: 1.5 !important;
+        line-height: 1.6 !important;
+        word-break: keep-all;
+        overflow-wrap: anywhere;
     }
     
     /* Reduce section padding for less scroll */
@@ -286,5 +288,107 @@ textarea:focus-visible {
     
     nav, footer, #modal-panel {
         display: none;
+    }
+}
+
+/* ===== WORKFLOW GLOW EFFECT ===== */
+#process {
+    --wf-glow: 99 102 241;
+    --wf-glow2: 168 85 247;
+}
+
+/* 아이콘 컨테이너 기본 스타일 */
+#process .process-icon {
+    position: relative;
+    isolation: isolate;
+    transition: box-shadow 300ms ease, border-color 300ms ease, transform 300ms ease;
+}
+
+/* 뒤에서 번지는 라이트 (pseudo-element) */
+#process .process-icon::before {
+    content: "";
+    position: absolute;
+    inset: -12px;
+    border-radius: 9999px;
+    background: radial-gradient(
+        closest-side,
+        rgba(var(--wf-glow), 0.4),
+        rgba(var(--wf-glow2), 0.2) 50%,
+        transparent 75%
+    );
+    filter: blur(12px);
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 400ms ease, transform 400ms ease;
+    z-index: -1;
+}
+
+/* 아이콘 글자 발광 트랜지션 */
+#process .process-icon .material-symbols-outlined {
+    transition: color 300ms ease, text-shadow 300ms ease;
+}
+
+/* 스크롤 진입 시 점등 (.in-view) */
+#process .process-step.in-view .process-icon::before {
+    opacity: 1;
+    transform: scale(1);
+}
+
+#process .process-step.in-view .process-icon {
+    border-color: rgba(var(--wf-glow), 0.9) !important;
+    box-shadow:
+        0 0 0 1px rgba(var(--wf-glow), 0.25),
+        0 0 24px rgba(var(--wf-glow), 0.35),
+        0 0 48px rgba(var(--wf-glow2), 0.15);
+    transform: translateY(-2px);
+}
+
+#process .process-step.in-view .process-icon .material-symbols-outlined {
+    color: rgb(var(--wf-glow)) !important;
+    text-shadow:
+        0 0 12px rgba(var(--wf-glow), 0.6),
+        0 0 24px rgba(var(--wf-glow2), 0.3);
+}
+
+/* 데스크탑 hover 효과 유지 */
+@media (hover: hover) and (pointer: fine) {
+    #process .process-step:hover .process-icon {
+        border-color: rgb(var(--wf-glow)) !important;
+        box-shadow:
+            0 0 0 1px rgba(var(--wf-glow), 0.3),
+            0 0 28px rgba(var(--wf-glow), 0.4),
+            0 0 56px rgba(var(--wf-glow2), 0.2);
+        transform: translateY(-3px);
+    }
+
+    #process .process-step:hover .process-icon::before {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+
+    #process .process-step:hover .process-icon .material-symbols-outlined {
+        color: rgb(var(--wf-glow)) !important;
+        text-shadow:
+            0 0 14px rgba(var(--wf-glow), 0.7),
+            0 0 28px rgba(var(--wf-glow2), 0.35);
+    }
+}
+
+/* 모바일 탭 효과 (추가 피드백) */
+@media (hover: none) and (pointer: coarse) {
+    #process .process-step:active .process-icon {
+        transform: scale(0.95);
+        box-shadow:
+            0 0 32px rgba(var(--wf-glow), 0.5),
+            0 0 64px rgba(var(--wf-glow2), 0.25);
+    }
+}
+
+/* 모션 민감 사용자 배려 */
+@media (prefers-reduced-motion: reduce) {
+    #process .process-icon,
+    #process .process-icon::before,
+    #process .process-icon .material-symbols-outlined {
+        transition: none !important;
     }
 }
