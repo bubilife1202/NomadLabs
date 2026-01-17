@@ -311,4 +311,21 @@ document.addEventListener('DOMContentLoaded', () => {
     steps.forEach(step => observer.observe(step));
 });
 
+// Scroll animation for [data-animate] elements
+document.addEventListener('DOMContentLoaded', () => {
+    const animateEls = document.querySelectorAll('[data-animate]');
+    if (!animateEls.length) return;
+
+    const animateObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+                animateObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+
+    animateEls.forEach(el => animateObserver.observe(el));
+});
+
 
