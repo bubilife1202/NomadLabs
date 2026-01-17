@@ -311,28 +311,4 @@ document.addEventListener('DOMContentLoaded', () => {
     steps.forEach(step => observer.observe(step));
 });
 
-// Scroll reveal animation for all [data-reveal] elements
-document.addEventListener('DOMContentLoaded', () => {
-    const revealEls = document.querySelectorAll('[data-reveal]');
-    if (!revealEls.length) return;
 
-    // Check for reduced motion preference
-    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduceMotion) {
-        revealEls.forEach(el => el.classList.add('is-revealed'));
-        return;
-    }
-
-    const revealObserver = new IntersectionObserver((entries) => {
-        for (const entry of entries) {
-            if (!entry.isIntersecting) continue;
-            entry.target.classList.add('is-revealed');
-            revealObserver.unobserve(entry.target);
-        }
-    }, { 
-        threshold: 0.15, 
-        rootMargin: '0px 0px -8% 0px' 
-    });
-
-    revealEls.forEach(el => revealObserver.observe(el));
-});
