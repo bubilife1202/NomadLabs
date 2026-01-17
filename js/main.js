@@ -293,7 +293,7 @@ function closeMobileMenu() {
 }
 
 // Workflow steps: add .in-view when visible (glow effect trigger)
-(() => {
+document.addEventListener('DOMContentLoaded', () => {
     const steps = document.querySelectorAll('#process .process-step');
     if (!steps.length) return;
 
@@ -304,9 +304,9 @@ function closeMobileMenu() {
             }
         }
     }, { 
-        threshold: 0.3,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0.2,
+        rootMargin: '0px 0px -20px 0px'
     });
 
     steps.forEach(step => observer.observe(step));
-})();
+});
