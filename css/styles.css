@@ -107,27 +107,117 @@ html {
         gap: 1.5rem;
     }
     
-    /* Category filters horizontal scroll */
+    /* [CRITICAL FIX] Category filters - proper positioning */
     #category-filters {
+        width: 100%;
+        margin: 0;
+        padding: 8px 16px;
+        display: flex;
+        justify-content: flex-start;
+        gap: 10px;
         overflow-x: auto;
+        overflow-y: hidden;
         -webkit-overflow-scrolling: touch;
-        padding-bottom: 0.5rem;
         scrollbar-width: none;
+        scroll-snap-type: x proximity;
     }
     
     #category-filters::-webkit-scrollbar {
         display: none;
     }
     
+    #category-filters > button {
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+        white-space: nowrap;
+    }
+    
     /* Section headings */
     section h2 {
         font-size: 1.75rem !important;
+        line-height: 1.2 !important;
     }
     
-    /* Contact form inputs */
-    input, textarea {
-        font-size: 16px !important; /* Prevents iOS zoom */
+    /* Contact form inputs - prevent iOS zoom */
+    input, textarea, select {
+        font-size: 16px !important;
     }
+    
+    /* [FIX] Hero CTA buttons - stack vertically */
+    .hero-cta-buttons {
+        flex-direction: column !important;
+        width: 100%;
+    }
+    
+    .hero-cta-buttons button {
+        width: 100%;
+        max-width: 343px;
+    }
+    
+    /* [FIX] Card meta info - stack vertically */
+    .card-meta {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 4px !important;
+    }
+    
+    /* [FIX] Workflow step descriptions */
+    .workflow-step p {
+        font-size: 14px !important;
+        line-height: 1.5 !important;
+    }
+    
+    /* Reduce section padding for less scroll */
+    section {
+        padding-top: 48px !important;
+        padding-bottom: 48px !important;
+    }
+}
+
+/* Mobile menu styles */
+#mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(15, 23, 42, 0.98);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding: 1rem 0;
+}
+
+#mobile-menu.open {
+    display: block;
+}
+
+#mobile-menu a {
+    display: block;
+    padding: 12px 24px;
+    color: #94a3b8;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+#mobile-menu a:hover {
+    color: white;
+    background: rgba(99, 102, 241, 0.1);
+}
+
+/* Category filter fade hint */
+.category-filters-wrap {
+    position: relative;
+}
+
+.category-filters-wrap::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    background: linear-gradient(to left, rgba(15, 23, 42, 1), rgba(15, 23, 42, 0));
+    pointer-events: none;
 }
 
 /* ===== TABLET RESPONSIVE (< 768px) ===== */

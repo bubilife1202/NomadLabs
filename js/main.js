@@ -161,7 +161,7 @@ function renderProjects(category) {
                         </div>
                     </div>
                     <div class="p-4 md:p-6">
-                        <div class="flex items-center justify-between mb-2">
+                        <div class="card-meta flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-2">
                             <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider">${categories.find(c => c.id === project.category).name}</span>
                             <span class="text-xs text-slate-500">${project.client}</span>
                         </div>
@@ -263,7 +263,31 @@ document.addEventListener('DOMContentLoaded', () => {
 // Mobile menu toggle
 function toggleMobileMenu() {
     const mobileMenu = document.getElementById('mobile-menu');
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const menuIcon = document.getElementById('menu-icon');
+    
     if (mobileMenu) {
-        mobileMenu.classList.toggle('hidden');
+        const isOpen = mobileMenu.classList.toggle('open');
+        menuBtn?.setAttribute('aria-expanded', String(isOpen));
+        if (menuIcon) {
+            menuIcon.textContent = isOpen ? 'close' : 'menu';
+        }
+        // Prevent body scroll when menu is open
+        document.body.style.overflow = isOpen ? 'hidden' : '';
+    }
+}
+
+function closeMobileMenu() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuBtn = document.getElementById('mobile-menu-btn');
+    const menuIcon = document.getElementById('menu-icon');
+    
+    if (mobileMenu) {
+        mobileMenu.classList.remove('open');
+        menuBtn?.setAttribute('aria-expanded', 'false');
+        if (menuIcon) {
+            menuIcon.textContent = 'menu';
+        }
+        document.body.style.overflow = '';
     }
 }
