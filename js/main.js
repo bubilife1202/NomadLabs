@@ -295,6 +295,7 @@ function closeMobileMenu() {
 // Workflow steps: add .in-view when visible (glow effect trigger)
 document.addEventListener('DOMContentLoaded', () => {
     const steps = document.querySelectorAll('#process .process-step');
+    const processSection = document.getElementById('process');
     if (!steps.length) return;
 
     const observer = new IntersectionObserver((entries) => {
@@ -309,7 +310,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     steps.forEach(step => observer.observe(step));
+    if (processSection) observer.observe(processSection);
 });
+
 
 // Scroll animation for [data-animate] elements
 document.addEventListener('DOMContentLoaded', () => {
