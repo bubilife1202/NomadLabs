@@ -64,6 +64,7 @@ const projects = [
         title: 'Undervalued Video Scout',
         tech: 'YouTube Data API, Python, Pandas',
         image: 'images/youtube_analysis.png',
+        url: 'https://youtube-search-viewer.nomadlab.kr',
         description: '구독자 수는 적지만 폭발적인 조회수를 기록한 바이럴 영상을 찾아주는 트렌드 분석 툴.',
         challenge: '유튜버와 마케터들이 다음 콘텐츠 아이디어를 얻기 위해 이미 유명한 채널만 참고하여 차별화된 소재를 찾기 어려웠습니다.',
         solution: '조회수 대비 구독자 비율(View/Sub Ratio)이 비정상적으로 높은 영상을 필터링하는 알고리즘을 개발하여, 이제 막 뜨기 시작한 "숨겨진 떡상" 소재를 발굴했습니다.',
@@ -80,6 +81,7 @@ const projects = [
         title: 'Viral Script Generator',
         tech: 'LLM, Few-shot Prompting',
         image: 'images/viralscript.png',
+        url: 'https://viral-structure-cloner.reelscode.co.kr',
         description: '벤치마킹할 영상을 입력하면 해당 스타일을 분석하여 새로운 대본을 작성해주는 AI 작가.',
         challenge: '트렌디한 영상을 찾더라도 이를 자신의 스타일로 각색하여 대본을 작성하는 과정에서 창작의 고통과 시간 소요가 컸습니다.',
         solution: '바이럴 영상의 구조(후킹-본론-결론)를 분석하고, 사용자의 말투와 주제를 반영하여 즉시 촬영 가능한 수준의 스크립트를 생성하는 프롬프트 엔지니어링 툴을 개발했습니다.',
@@ -203,6 +205,16 @@ function openProject(id) {
             ${r}
          </li>`
     ).join('');
+
+    // Set Link
+    const linkContainer = document.getElementById('modal-link-container');
+    const modalLink = document.getElementById('modal-link');
+    if (project.url) {
+        linkContainer.classList.remove('hidden');
+        modalLink.href = project.url;
+    } else {
+        linkContainer.classList.add('hidden');
+    }
 
     // Show Modal
     const modal = document.getElementById('project-modal');
