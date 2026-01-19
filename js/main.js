@@ -383,4 +383,22 @@ document.addEventListener('DOMContentLoaded', () => {
     scrollEls.forEach(el => scrollObserver.observe(el));
 });
 
+// FAQ Toggle
+function toggleFaq(button) {
+    const item = button.closest('.faq-item');
+    const content = item.querySelector('.faq-content');
+    const icon = item.querySelector('.faq-icon');
+    
+    // Close all other FAQs
+    document.querySelectorAll('.faq-item').forEach(otherItem => {
+        if (otherItem !== item) {
+            otherItem.querySelector('.faq-content').classList.add('hidden');
+            otherItem.querySelector('.faq-icon').style.transform = 'rotate(0deg)';
+        }
+    });
+    
+    // Toggle current FAQ
+    content.classList.toggle('hidden');
+    icon.style.transform = content.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+}
 
