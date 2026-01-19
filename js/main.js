@@ -265,10 +265,28 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeModal();
 });
 
+// Improved Modal Interaction
 document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('project-modal');
+    const panel = document.getElementById('modal-panel');
     const backdrop = document.getElementById('modal-backdrop');
-    if (backdrop) {
-        backdrop.addEventListener('click', closeModal);
+
+    if (modal) {
+        // Click on backdrop to close
+        modal.addEventListener('click', (e) => {
+            // Check if the click was directly on the modal wrapper (the backdrop area)
+            // or the explicit backdrop element
+            if (e.target === modal || e.target.id === 'modal-backdrop' || e.target.closest('.overflow-y-auto') === e.target) {
+                closeModal();
+            }
+        });
+
+        // Prevent closing when clicking inside the panel
+        if (panel) {
+            panel.addEventListener('click', (e) => {
+                e.stopPropagation();
+            });
+        }
     }
 });
 
