@@ -328,4 +328,59 @@ document.addEventListener('DOMContentLoaded', () => {
     animateEls.forEach(el => animateObserver.observe(el));
 });
 
+// Hero Typing Effect
+document.addEventListener('DOMContentLoaded', () => {
+    const words = ['Intelligence.', 'Workflows.', 'Automation.'];
+    const typedEl = document.getElementById('typed-text');
+    if (!typedEl) return;
+
+    let wordIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function type() {
+        const currentWord = words[wordIndex];
+        
+        if (isDeleting) {
+            typedEl.textContent = currentWord.substring(0, charIndex - 1);
+            charIndex--;
+        } else {
+            typedEl.textContent = currentWord.substring(0, charIndex + 1);
+            charIndex++;
+        }
+
+        let delay = isDeleting ? 50 : 100;
+
+        if (!isDeleting && charIndex === currentWord.length) {
+            delay = 2000;
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            wordIndex = (wordIndex + 1) % words.length;
+            delay = 300;
+        }
+
+        setTimeout(type, delay);
+    }
+
+    type();
+});
+
+// Scroll Animation Observer
+document.addEventListener('DOMContentLoaded', () => {
+    const scrollEls = document.querySelectorAll('.animate-on-scroll');
+    if (!scrollEls.length) return;
+
+    const scrollObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animated');
+                scrollObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    scrollEls.forEach(el => scrollObserver.observe(el));
+});
+
 
