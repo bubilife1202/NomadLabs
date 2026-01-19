@@ -261,12 +261,17 @@ p.add(t.target);p=u(p);for(l=p.next();!l.done;l=p.next())a(l.value)}),Vd=0,ha=ne
 
         /* Typing Cursor */
         .typing-cursor {
-            animation: blink 1s infinite;
-            font-weight: 100;
+            display: inline-block;
+            width: 4px;
+            height: 0.9em;
+            background: linear-gradient(to bottom, #818cf8, #c084fc);
+            margin-left: 4px;
+            vertical-align: middle;
+            animation: cursor-blink 0.8s ease-in-out infinite;
         }
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
+        @keyframes cursor-blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
 
         /* Scroll Animations */
@@ -460,7 +465,7 @@ p.add(t.target);p=u(p);for(l=p.next();!l.done;l=p.next())a(l.value)}),Vd=0,ha=ne
 
 <h1 class="hero-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-space font-bold text-white leading-[1.15] mb-6 md:mb-8 fade-in-up tracking-tight" style="animation-delay: 0.2s;">
                 Designing <br>
-<span class="text-gradient"><span id="typed-text"></span><span class="typing-cursor">|</span></span>
+<span class="text-gradient"><span id="typed-text"></span><span class="typing-cursor"></span></span>
 </h1>
 <p class="hero-subtitle mt-2 text-sm sm:text-base md:text-lg lg:text-xl text-slate-300 leading-relaxed max-w-2xl fade-in-up" style="animation-delay: 0.3s;">
                 최신 AI 기술 스택을 활용하여 기업의 워크플로우를 혁신적으로 자동화합니다.<br class="hidden sm:block">
