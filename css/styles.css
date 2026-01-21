@@ -279,3 +279,35 @@ html {
     color: white;
     background-color: rgba(99, 102, 241, 0.1);
 }
+
+/* Typing Cursor */
+.typing-cursor {
+    display: inline-block;
+    width: 4px;
+    height: 0.9em;
+    background: linear-gradient(to bottom, #818cf8, #c084fc);
+    margin-left: 4px;
+    vertical-align: middle;
+    animation: cursor-blink 0.8s ease-in-out infinite;
+}
+
+@keyframes cursor-blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Scroll Animations (Legacy classes from index.html) */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }

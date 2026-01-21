@@ -106,6 +106,36 @@ const projects = [
             '업무 처리 속도 10배 향상',
             '인건비 대비 운영 비용 90% 절감'
         ]
+    },
+    {
+        id: 7,
+        category: 'platform',
+        client: 'Aura',
+        title: 'Aura - AI Intelligence Studio',
+        tech: 'Web',
+        image: 'images/aura.svg',
+        url: 'https://aura-studio-nu.vercel.app/',
+        description: 'AI Intelligence Studio 소개 페이지.',
+        challenge: '자세한 내용은 링크에서 확인 가능합니다.',
+        solution: '자세한 내용은 링크에서 확인 가능합니다.',
+        results: [
+            '라이브 데모 링크 제공'
+        ]
+    },
+    {
+        id: 8,
+        category: 'platform',
+        client: 'Blitz',
+        title: 'Blitz',
+        tech: 'Phaser 3',
+        image: 'images/blitz.svg',
+        url: 'https://blitz-rts.netlify.app/',
+        description: '브라우저에서 동작하는 RTS 데모.',
+        challenge: '자세한 내용은 링크에서 확인 가능합니다.',
+        solution: '자세한 내용은 링크에서 확인 가능합니다.',
+        results: [
+            '라이브 데모 링크 제공'
+        ]
     }
 ];
 
