@@ -110,35 +110,35 @@ const projects = [
     {
         id: 7,
         category: 'platform',
-        client: 'Aura Studio',
+        client: 'Internal Project',
         title: 'Aura - AI Web Builder',
-        tech: 'GPT-4, React, Real-time Preview',
+        tech: 'Next.js, OpenAI API, Vercel',
         image: 'images/aura.png',
         url: 'https://aura-studio-nu.vercel.app/',
-        description: 'AI가 한 문장의 프롬프트만으로 완성도 높은 웹사이트를 즉시 생성해주는 혁신적인 노코드 빌더.',
-        challenge: '웹사이트 제작에 코딩 지식이 필요하고, 디자인과 개발에 수일에서 수주가 소요되어 아이디어를 빠르게 검증하기 어려웠습니다.',
-        solution: 'GPT-4 기반 자연어 처리로 사용자의 요청을 분석하고, 실시간 미리보기와 함께 프로덕션 레디 코드를 즉시 생성합니다. 반응형 디자인과 SEO 최적화가 자동 적용됩니다.',
+        description: '"미니멀한 포트폴리오 사이트" 한 줄 입력으로 완성된 웹사이트를 생성하는 AI 웹 빌더.',
+        challenge: '웹사이트 제작 시 디자인 감각, 코딩 지식, 긴 개발 시간이 필요하여 비개발자가 아이디어를 빠르게 웹으로 구현하기 어려웠습니다.',
+        solution: '자연어 프롬프트를 분석하여 SaaS 랜딩, 포트폴리오, 브랜드 사이트 등 다양한 유형의 프로덕션 레디 웹페이지를 즉시 생성합니다. 빠른 시작 템플릿과 최근 작업 기록으로 반복 작업도 간편합니다.',
         results: [
-            '프롬프트 입력 후 10초 내 웹사이트 생성',
-            '실시간 미리보기 및 즉시 수정 가능',
-            '프로덕션 레디 코드 자동 생성'
+            '프롬프트 한 줄로 완성된 웹사이트 생성',
+            'SaaS, 포트폴리오, 브랜드 등 다양한 템플릿',
+            '실시간 미리보기 및 코드 내보내기 지원'
         ]
     },
     {
         id: 8,
         category: 'platform',
-        client: 'Blitz Games',
-        title: 'Blitz - Browser RTS Game',
-        tech: 'Phaser 3, TypeScript, WebGL',
+        client: 'Internal Project',
+        title: 'Blitz - Browser RTS',
+        tech: 'Phaser 3.90, TypeScript, WebGL',
         image: 'images/blitz.png',
         url: 'https://blitz-rts.netlify.app/',
-        description: '설치 없이 브라우저에서 즉시 플레이 가능한 실시간 전략(RTS) 게임 데모.',
-        challenge: '전통적인 RTS 게임은 고사양 PC와 설치 과정이 필요하여 접근성이 낮고, 캐주얼 유저층의 진입 장벽이 높았습니다.',
-        solution: 'Phaser 3 엔진과 WebGL을 활용하여 브라우저에서 네이티브급 성능을 구현했습니다. 자원 수집, 유닛 생산, 전투 시스템 등 RTS 핵심 메카닉을 최적화된 경량 패키지로 제공합니다.',
+        description: '스타크래프트 스타일의 실시간 전략 게임을 브라우저에서 바로 플레이.',
+        challenge: 'RTS 장르는 고사양 PC와 설치가 필요하고, 웹 기반으로 구현 시 성능과 조작감을 유지하기 어려웠습니다.',
+        solution: 'Phaser 3 게임 엔진과 WebGL 렌더링으로 브라우저에서도 부드러운 60fps 게임플레이를 구현했습니다. 유닛 선택, 이동, 전투 등 RTS 핵심 메카닉을 충실히 재현했습니다.',
         results: [
             '설치 없이 브라우저에서 즉시 플레이',
-            'Single Player 캠페인 모드 지원',
-            '60fps 부드러운 게임플레이 구현'
+            'Single Player 모드 지원 (Multiplayer 준비 중)',
+            'Phaser 3.90 최신 엔진 기반 60fps 구현'
         ]
     }
 ];
