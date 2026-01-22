@@ -130,7 +130,7 @@ const projects = [
         client: 'Internal Project',
         title: 'Blitz - Browser RTS',
         tech: 'Phaser 3.90, TypeScript, WebGL',
-        image: 'images/blitz.png',
+        image: 'images/blitz.gif',
         url: 'https://blitz-rts.netlify.app/',
         description: '스타크래프트 스타일의 실시간 전략 게임을 브라우저에서 바로 플레이.',
         challenge: 'RTS 장르는 고사양 PC와 설치가 필요하고, 웹 기반으로 구현 시 성능과 조작감을 유지하기 어려웠습니다.',
@@ -306,13 +306,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const backdrop = document.getElementById('modal-backdrop');
 
     if (modal) {
-        // Click on backdrop to close
+        // Click outside the panel to close
         modal.addEventListener('click', (e) => {
-            // Check if the click was directly on the modal wrapper (the backdrop area)
-            // or the explicit backdrop element
-            if (e.target === modal || e.target.id === 'modal-backdrop' || e.target.closest('.overflow-y-auto') === e.target) {
-                closeModal();
-            }
+            if (panel && panel.contains(e.target)) return;
+            closeModal();
         });
 
         // Prevent closing when clicking inside the panel
