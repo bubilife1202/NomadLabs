@@ -5,7 +5,8 @@ const categories = [
     { id: 'vision', name: 'Vision AI' },
     { id: 'nlp', name: 'NLP & RAG' },
     { id: 'analytics', name: 'Data Analytics' },
-    { id: 'automation', name: 'Automation' }
+    { id: 'automation', name: 'Automation' },
+    { id: 'social', name: 'Social & SNS' }
 ];
 
 const projects = [
@@ -140,6 +141,23 @@ const projects = [
             'Single Player 모드 지원 (Multiplayer 준비 중)',
             'Phaser 3.90 최신 엔진 기반 60fps 구현'
         ]
+    },
+    {
+        id: 9,
+        category: 'social',
+        client: 'Solace Project',
+        title: 'Solace - 1인 감성 SNS',
+        tech: 'React, Next.js, WebSocket',
+        image: 'https://dearsolace.kr/og-image.png',
+        url: 'http://dearsolace.kr/',
+        description: '남들의 시선은 끄고, 오직 나의 감정에만 집중하는 1인 감성 소셜 네트워크.',
+        challenge: '현대 사회에서 남들의 시선과 평가에 지쳐가는 사람들이, 진정한 자신의 감정을 털어놓고 위로받을 안전한 공간이 필요했습니다.',
+        solution: 'AI 페르소나들과 자유롭게 소통하는 "Today\'s Moments" 카드 섹션을 구현하고, 댓글과 반응을 통해 사용자 간의 정서적 교류를 지원하는 디자인을 적용했습니다.',
+        results: [
+            '감성 힐링 중심의 UI/UX 설계',
+            '실시간 피드 업데이트',
+            'AI 페르소나와의 자연스러운 대화 경험'
+        ]
     }
 ];
 
@@ -154,11 +172,11 @@ document.addEventListener('DOMContentLoaded', () => {
 function renderCategories() {
     const container = document.getElementById('category-filters');
     if (!container) return;
-    
+
     container.innerHTML = categories.map(cat => `
-        <button 
+        <button
             onclick="setCategory('${cat.id}')"
-            class="px-4 py-2 rounded-full text-xs md:text-sm font-bold transition-all duration-300 ${activeCategory === cat.id ? 'category-active' : 'category-inactive'}"
+            class="px-4 py-2.5 rounded-2xl text-xs md:text-sm font-semibold transition-all duration-300 ${activeCategory === cat.id ? 'category-active' : 'category-inactive'}"
         >
             ${cat.name}
         </button>
@@ -174,37 +192,37 @@ function setCategory(id) {
 function renderProjects(category) {
     const grid = document.getElementById('projects-grid');
     if (!grid) return;
-    
-    const filtered = category === 'all' 
-        ? projects 
+
+    const filtered = category === 'all'
+        ? projects
         : projects.filter(p => p.category === category);
 
     // Animate Out
     grid.style.opacity = '0';
     grid.style.transform = 'translateY(10px)';
-    
+
     setTimeout(() => {
         if (filtered.length === 0) {
             grid.innerHTML = `<div class="col-span-3 text-center py-20 text-slate-500">해당 카테고리의 프로젝트가 준비 중입니다.</div>`;
         } else {
             grid.innerHTML = filtered.map(project => `
-                <div onclick="openProject(${project.id})" class="group bg-[#1e293b] rounded-xl overflow-hidden border border-slate-700 hover:border-indigo-500 transition-all duration-300 cursor-pointer hover:shadow-[0_0_20px_rgba(99,102,241,0.2)] transform hover:-translate-y-1">
+                <div onclick="openProject(${project.id})" class="group bg-[#1e293b] rounded-3xl overflow-hidden border border-slate-700/60 hover:border-indigo-500/60 transition-all duration-300 cursor-pointer shadow-sm hover:shadow-lg hover:shadow-[0_0_25px_rgba(99,102,241,0.15)] transform hover:-translate-y-1">
                     <div class="relative overflow-hidden aspect-[4/3]">
-                        <img src="${project.image}" alt="${project.title}" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-gradient-to-t from-[#1e293b] to-transparent opacity-60"></div>
-                        <div class="absolute top-4 right-4 bg-black/60 backdrop-blur-md text-white text-[10px] font-bold px-2 py-1 rounded border border-white/10">
+                        <img src="${project.image}" alt="${project.title}" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#1e293b] via-transparent to-transparent opacity-70"></div>
+                        <div class="absolute top-3 right-3 bg-black/70 backdrop-blur-md text-white text-[10px] font-bold px-2.5 py-1.5 rounded-2xl border border-white/10">
                             ${project.tech.split(',')[0]}
                         </div>
                     </div>
-                    <div class="p-4 md:p-6">
-                        <div class="card-meta flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-2">
-                            <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider">${categories.find(c => c.id === project.category).name}</span>
+                    <div class="p-5 md:p-6">
+                        <div class="card-meta flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5 mb-3">
+                            <span class="text-xs font-semibold text-indigo-400 uppercase tracking-wide">${categories.find(c => c.id === project.category).name}</span>
                             <span class="text-xs text-slate-500">${project.client}</span>
                         </div>
-                        <h3 class="text-lg md:text-xl font-bold text-white mb-2 group-hover:text-indigo-400 transition-colors">${project.title}</h3>
-                        <p class="text-slate-400 text-sm line-clamp-2 leading-relaxed">${project.description}</p>
-                        
-                        <div class="mt-4 flex items-center text-indigo-400 text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0 duration-300">
+                        <h3 class="text-lg md:text-xl font-bold text-white mb-2.5 group-hover:text-indigo-400 transition-colors">${project.title}</h3>
+                        <p class="text-slate-400 text-sm line-clamp-2 leading-relaxed mb-4">${project.description}</p>
+
+                        <div class="mt-auto flex items-center text-indigo-400 text-sm font-semibold opacity-0 group-hover:opacity-100 transition-opacity transform translate-y-2 group-hover:translate-y-0 duration-300">
                             View Case Study <span class="material-symbols-outlined text-base ml-1">arrow_forward</span>
                         </div>
                     </div>
